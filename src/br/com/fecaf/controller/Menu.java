@@ -35,6 +35,7 @@ public class Menu {
             scanner.nextLine();
 
 
+
             switch (userOption) {
                 case 1:
                     Livro livro = new Livro();
@@ -152,7 +153,42 @@ public class Menu {
 
                     break;
                 case 8:
-                    System.out.println("Feature in Development");
+                    // Aqui estou usando de referencia o código do case 7.
+                    System.out.println("/**  Devolver Livro **/");
+                    System.out.println("Informe o seu CPF");
+                    String cpfUserDev = scanner.nextLine();
+
+                    //Verificando o livro que o user já tem emprestado.
+                    Pessoa pessoaDevolveLivro = pessoaController.pesquisarPessoa(cpfUserDev);
+
+                    if (pessoaDevolveLivro != null) {
+
+                        //Adicionei o nome do livro que a pessoa já tem emprestada.
+                        if (pessoaDevolveLivro.livro != null) {
+                            System.out.println("Olá " + pessoaDevolveLivro.nome +
+                                    " você está com o livro: " + pessoaDevolveLivro.livro.titulo);
+
+                            //Confirmando a devoção do livro
+                            System.out.println("Deseja fazer a devolução do livro: " + pessoaDevolveLivro.livro.titulo + "(1 - Sim/2 - Não)");
+                            int resposta = scanner.nextInt();
+
+                            if (resposta == 1) {
+                                Livro livroDevolucao = pessoaDevolveLivro.livro;
+                                livroDevolucao.isEmprestado = false;
+                                System.out.println("Livro Devolvido com sucesso !");
+
+                            }else if (resposta == 2) {
+                                System.out.println("O livro não será devolvido");
+
+                            }else
+                                System.out.println("Resposta invalida");
+
+                        } else {
+                            System.out.println("Você não possui livros");
+                        }
+                    }else
+                        System.out.println("Pessoa não existe na base !");
+
                     break;
                 case 9:
                     System.out.println("Saindo ...");
@@ -166,3 +202,4 @@ public class Menu {
     }
 
 }
+

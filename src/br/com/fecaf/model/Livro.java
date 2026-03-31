@@ -40,6 +40,11 @@ public class Livro {
         System.out.println("Ano de lancamento: " + anolancamento);
         System.out.println("Paginas: " + paginas);
         System.out.println("ISBN: " + isbn);
+        //Decidi por essa área de status para o usuário saber se o livro está disponível para ser emprestado ou não.
+        if (isEmprestado == true) {
+            System.out.println("Status: Livro Emprestado");
+        }else
+            System.out.println("Status: Livro Disponivel");
         System.out.println("/*************************************/");
 
     }
