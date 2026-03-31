@@ -115,7 +115,7 @@ public class Menu {
                     if (pessoaEmprestimoLivro != null) {
                         livroController.exibirLivros();
                         System.out.println("Olá " + pessoaEmprestimoLivro.nome +
-                                " Qual livro pensa em pegar hoje: ");
+                                " Informe o ISBN do livro pensa em pegar hoje: ");
 
                         int isbnLivroEmprestimo = scanner.nextInt();
                         scanner.nextLine();
@@ -177,9 +177,11 @@ public class Menu {
                             if (resposta == 1) {
                                 Livro livroDevolucao = pessoaDevolveLivro.livro;
                                 livroDevolucao.isEmprestado = false;
+                                //Valida a devolução do livro (Ao exclui o usur mesmo sem livro ele ainda dizia que havaia um livro com ele),
+                                pessoaDevolveLivro.livro = null;
                                 System.out.println("Livro Devolvido com sucesso !");
 
-                            //Um ponto importante aqui foi esse else if, que eu não conhecia, mas testando com if e else o código não ia. A própria IDE que me deu esse else if e funcionou com ele.
+                             // Um ponto importante aqui foi esse else if que eu não conhecia, mas testando com if e else o código não ia, a propria IDE que me deu esse else if e funcionou com ele
                             }else if (resposta == 2) {
                                 System.out.println("O livro não será devolvido");
 

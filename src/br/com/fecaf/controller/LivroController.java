@@ -16,7 +16,7 @@ public class LivroController {
     }
 
     // Exibir Livros Lista
-    public void exibirLivros () {
+    public void exibirLivros() {
         System.out.println("/**** Listando Livros  ****/");
 
         for (Livro livro : livroList) {
@@ -26,7 +26,7 @@ public class LivroController {
     }
 
     // Pesquisar Livros Lista
-    public Livro pesquisarLivro (int isbn) {
+    public Livro pesquisarLivro(int isbn) {
         System.out.println("/**** Pesquisar Livros  ****/");
 
         for (Livro livro : livroList) {
@@ -40,13 +40,16 @@ public class LivroController {
     }
 
     // Delete Livro
-    public void deletarLivro (Livro livro) {
-        livroList.remove(livro);
-        System.out.println("Livro deletado com Sucesso !");
+    // Seguindo o mesmo passo a passo do Deleta pessoa, com a diferença de que, em vez de procurar um valor null, ele não tem a informação do que está emprestado no isEmprestado.
+    public void deletarLivro(Livro livro) {
+        if (livro.isEmprestado) {
+            System.out.println("O livro não pode ser deletado, pois está emprestado");
+
+        } else {
+            this.livroList.remove(livro);
+            System.out.println("Livro deletado com Sucesso !");
+        }
+
+
     }
-
-
-
-
-
 }

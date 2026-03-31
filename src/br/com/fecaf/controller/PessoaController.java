@@ -16,7 +16,7 @@ public class PessoaController {
     }
 
     // Exibir
-    public void exibirPessoas () {
+    public void exibirPessoas() {
         System.out.println("/**** Listando Pessoas  ****/");
 
         for (Pessoa pessoa : pessoaList) {
@@ -27,7 +27,7 @@ public class PessoaController {
     }
 
     //Pesquisar Pessoa
-    public Pessoa pesquisarPessoa (String cpf) {
+    public Pessoa pesquisarPessoa(String cpf) {
         System.out.println("/**  Pesquisar Pessoa  **/");
 
         for (Pessoa pessoa : pessoaList) {
@@ -42,12 +42,18 @@ public class PessoaController {
     }
 
     // Deletar Pessoa
+    // Se o usuario possuir um livro ele não poderá ser deletado, assim que o sistema detecta que o usuario possui um valor de livro diferente de nula ele retornará a mensagem.
     public void deletarPessoa(Pessoa pessoa) {
-        this.pessoaList.remove(pessoa);
-        System.out.println("Pessoa deletada com sucesso !");
+        if (pessoa.livro != null) {
+            System.out.println("O usuario possui o livro " + pessoa.livro.titulo + " e não poderá ser excluido");
 
-     }
+        } else {
+            this.pessoaList.remove(pessoa);
+            System.out.println("Pessoa deletada com sucesso !");
+        }
+
     }
+}
 
 
 
