@@ -153,12 +153,12 @@ public class Menu {
 
                     break;
                 case 8:
-                    // Aqui estou usando de referencia o código do case 7.
+                    // Aqui estou usando de referencia o código do case 7, apenas invertendo os nomes .
                     System.out.println("/**  Devolver Livro **/");
                     System.out.println("Informe o seu CPF");
                     String cpfUserDev = scanner.nextLine();
 
-                    //Verificando o livro que o user já tem emprestado.
+                    //Verificando o livro que o user já tem emprestado, para facilitar a devolução.
                     Pessoa pessoaDevolveLivro = pessoaController.pesquisarPessoa(cpfUserDev);
 
                     if (pessoaDevolveLivro != null) {
@@ -168,15 +168,18 @@ public class Menu {
                             System.out.println("Olá " + pessoaDevolveLivro.nome +
                                     " você está com o livro: " + pessoaDevolveLivro.livro.titulo);
 
-                            //Confirmando a devoção do livro
+                            //Confirmando a devoção do livro com um simples comando de sim ou não, já que é mais fácil e atende o objetivo.
                             System.out.println("Deseja fazer a devolução do livro: " + pessoaDevolveLivro.livro.titulo + "(1 - Sim/2 - Não)");
+                            //Vai ler a resposta 1 ou 2
                             int resposta = scanner.nextInt();
 
+                            //Se R = 1 devolve o livro
                             if (resposta == 1) {
                                 Livro livroDevolucao = pessoaDevolveLivro.livro;
                                 livroDevolucao.isEmprestado = false;
                                 System.out.println("Livro Devolvido com sucesso !");
 
+                            //Um ponto importante aqui foi esse else if, que eu não conhecia, mas testando com if e else o código não ia. A própria IDE que me deu esse else if e funcionou com ele.
                             }else if (resposta == 2) {
                                 System.out.println("O livro não será devolvido");
 

@@ -42,11 +42,13 @@ public class PessoaController {
     }
 
     // Deletar Pessoa
-    public void deletarPessoa (Pessoa pessoa) {
-        pessoaList.remove(pessoa);
+    public void deletarPessoa(Pessoa pessoa) {
+        this.pessoaList.remove(pessoa);
         System.out.println("Pessoa deletada com sucesso !");
+
+     }
     }
 
 
 
-}
+
