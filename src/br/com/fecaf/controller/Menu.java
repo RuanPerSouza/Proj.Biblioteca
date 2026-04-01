@@ -153,22 +153,22 @@ public class Menu {
 
                     break;
                 case 8:
-                    // Aqui estou usando de referencia o código do case 7, apenas invertendo os nomes .
+                    //Aqui estou usando de refêrencia o código do case 7, apenas invertendo as operações.
                     System.out.println("/**  Devolver Livro **/");
                     System.out.println("Informe o seu CPF");
                     String cpfUserDev = scanner.nextLine();
 
-                    //Verificando o livro que o user já tem emprestado, para facilitar a devolução.
+                    //Verificando o livro que o usuário já tem emprestado, para fazer a devolução de acordo com o livro que ele já possui no registrado
                     Pessoa pessoaDevolveLivro = pessoaController.pesquisarPessoa(cpfUserDev);
 
                     if (pessoaDevolveLivro != null) {
 
-                        //Adicionei o nome do livro que a pessoa já tem emprestada.
+                        //Adicionei o nome do livro que a pessoa tem emprestada (Apenas capricho).
                         if (pessoaDevolveLivro.livro != null) {
                             System.out.println("Olá " + pessoaDevolveLivro.nome +
                                     " você está com o livro: " + pessoaDevolveLivro.livro.titulo);
 
-                            //Confirmando a devoção do livro com um simples comando de sim ou não, já que é mais fácil e atende o objetivo.
+                            //Comando de sim ou não, para a aprovação da devolução e facilitar a leitura da resposta.
                             System.out.println("Deseja fazer a devolução do livro: " + pessoaDevolveLivro.livro.titulo + "(1 - Sim/2 - Não)");
                             //Vai ler a resposta 1 ou 2
                             int resposta = scanner.nextInt();
@@ -181,7 +181,8 @@ public class Menu {
                                 pessoaDevolveLivro.livro = null;
                                 System.out.println("Livro Devolvido com sucesso !");
 
-                             // Um ponto importante aqui foi esse else if que eu não conhecia, mas testando com if e else o código não ia, a propria IDE que me deu esse else if e funcionou com ele
+                             // Um ponto importante aqui foi esse else if que eu não conhecia, mas testando com if e else o código não ia, a propria IDE que me deu esse else if e funcionou com ele.
+                             // Se R = 2 O livro não será devolvido e o usuario retornara ao menu.
                             }else if (resposta == 2) {
                                 System.out.println("O livro não será devolvido");
 

@@ -42,10 +42,11 @@ public class PessoaController {
     }
 
     // Deletar Pessoa
-    // Se o usuario possuir um livro ele não poderá ser deletado, assim que o sistema detecta que o usuario possui um valor de livro diferente de nula ele retornará a mensagem.
+    // Se o usuario possuir um livro ele não poderá ser deletado, assim que o sistema detectar que o usuário possui um valor de livro diferente de nulo ele retornará a mensagem.
+    // Usei uma variavel de if else pois faz sentido se tratando de duas alternativas e, é simples de ser feito.
     public void deletarPessoa(Pessoa pessoa) {
         if (pessoa.livro != null) {
-            System.out.println("O usuario possui o livro " + pessoa.livro.titulo + " e não poderá ser excluido");
+            System.out.println("O usuário possui o livro: " + pessoa.livro.titulo + " e não poderá ser excluido.");
 
         } else {
             this.pessoaList.remove(pessoa);

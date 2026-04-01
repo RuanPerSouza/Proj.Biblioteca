@@ -40,7 +40,7 @@ public class LivroController {
     }
 
     // Delete Livro
-    // Seguindo o mesmo passo a passo do Deleta pessoa, com a diferença de que, em vez de procurar um valor null, ele não tem a informação do que está emprestado no isEmprestado.
+    // Seguindo o mesmo passo a passo do deleta pessoa, com a diferença de que, em vez de procurar um valor null, ele não tem a informação do que está emprestado no isEmprestado.
     public void deletarLivro(Livro livro) {
         if (livro.isEmprestado) {
             System.out.println("O livro não pode ser deletado, pois está emprestado");
